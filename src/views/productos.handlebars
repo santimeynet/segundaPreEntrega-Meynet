@@ -1,0 +1,54 @@
+<div>
+  <div>
+    <nav aria-label="Page navigation example">
+      <ul class="pagination">
+        {{#if productos.hasPrevPage}}
+        <li class="page-item mr-2"><a class="page-link" href="/products?page={{productos.prevPage}}&&limit=3">Previous</a></li>
+        {{/if}}
+        <p class="btn ml-3">
+          Pagina: {{productos.page}} de  {{productos.totalPages}}
+        </p>
+        {{#if productos.hasNextPage}}
+        <li class="page-item ml-2"><a class="page-link" href="/products?page={{productos.nextPage}}&&limit=3">Next</a></li>
+        {{/if}}
+        <p class="btn ml-3">
+          Cantidad De Productos: {{productos.totalDocs}}
+        </p>
+      </ul>
+    </nav>
+  </div>
+  <div class="table-responsive">
+    <table class="table table-bordered table-hover">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Description</th>
+          <th>ID</th>
+          <th>Price</th>
+          <th>Code</th>
+          <th>Stock</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each productos.docs}}
+        <tr>
+          <td>{{this.title}}</td>
+          <td>{{this.description}}</td>
+          <td>{{this._id}}</td>
+          <td><strong>$ {{this.price}}</strong></td>
+          <td>{{this.code}}</td>
+          <td>{{this.stock}}</td>
+          <td>
+            <button class="btn btn-success">Agregar al Carrito</button>
+            <button class="btn btn-danger" onclick="deleteAndReload('{{this._id}}')">Eliminar</button>
+          </td>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+</div>
+<script src="/socket.io/socket.io.js"></script>
+<script src="../public/main.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

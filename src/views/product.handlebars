@@ -1,0 +1,57 @@
+
+<div>
+    <h2>Agregar productos</h2>
+   <form>
+    <div>
+        <label for="title">Título:</label>
+        <input type="text" id="title" name="title" required>
+    </div>
+
+    <br>
+
+    <div>
+        <label for="description">Descripción:</label>
+        <textarea id="description" name="description" required></textarea>
+    </div>
+
+    <br>
+
+    <div>
+        <label for="price">Precio:</label>
+        <input type="number"id="price" name="price" step="0.01" required>
+    </div>
+
+    <br>
+
+    <div>
+        <label for="thumbnails">URL de la Imagen:</label>
+        <input type="text" id="thumbnails" name="thumbnails" required>
+    </div>
+
+    <br>
+
+    <div>
+        <label for="code">Código:</label>
+        <input type="text" id="code" name="code" required>
+    </div>
+
+    <br>
+
+    <div>
+        <label for="stock">Cantidad en Stock:</label>
+        <input type="number" id="stock" name="stock" required>
+    </div>
+
+    <button type="submit" class="btn btn-secondary">Enviar</button>
+</form>
+
+<h3>Productos</h3>
+    <div>
+    <div id="products"></div>
+</div>
+
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="../public/main.js" ></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</div>
